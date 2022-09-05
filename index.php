@@ -1,5 +1,5 @@
 <?php
-
+header("Access-Control-Allow-Origin: *");
 echo "hello there";
 //Get Heroku ClearDB connection information
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -11,7 +11,6 @@ $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
@@ -19,11 +18,30 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 
 
-$sql = 'SELECT * FROM loc_country';
-$myQuery = mysqli_query($conn, $sql);
+if(isset($_POST['req'])){
 
 
-$result = mysqli_fetch_all($myQuery, MYSQLI_ASSOC);
+	$sql = 'SELECT * FROM partner-locator WHERE status = "$req"';
 
-print_r($result);
+    $myQuery = mysqli_query($conn, $sql);
+
+
+    $result = mysqli_fetch_all($myQuery, MYSQLI_ASSOC);
+
+    echo json_encode($result);
+
+}
+else {
+$sql = ' SELECT * FROM partner-locator ';
+
+    $myQuery = mysqli_query($conn, $sql);
+
+
+    $result = mysqli_fetch_all($myQuery, MYSQLI_ASSOC);
+
+	print_r($result);
+}
+
+
+
 ?>
