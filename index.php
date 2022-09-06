@@ -39,7 +39,7 @@ if(isset($_POST['req'])){
     echo json_encode($result);
 
 }
-else {
+
 $sql = ' SELECT * FROM partner-locator ';
 
     $myQuery = mysqli_query($conn, $sql);
@@ -48,7 +48,6 @@ $sql = ' SELECT * FROM partner-locator ';
     $result = mysqli_fetch_all($myQuery, MYSQLI_ASSOC);
 
 	print_r($result);
-}
 
 
 
