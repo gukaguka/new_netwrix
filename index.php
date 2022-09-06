@@ -1,5 +1,4 @@
 <?php
-header('Access-Control-Allow-Origin: *');
 
 header('Access-Control-Allow-Origin: https://lighthearted-cactus-ef24e2.netlify.app/');
 
@@ -40,14 +39,14 @@ if(isset($_POST['req'])){
 
 }
 
-$sql = ' SELECT * FROM partner-locator ';
+$sqli = ' SELECT * FROM partner-locator ';
 
-    $myQuery = mysqli_query($conn, $sql);
+    $myQueryy = mysqli_query($conn, $sqli);
 
 
-    $result = mysqli_fetch_all($myQuery, MYSQLI_ASSOC);
+    $resultt = mysqli_fetch_all($myQueryy, MYSQLI_ASSOC);
 
-	print_r($result);
+	print_r($resultt);
 
 
 
