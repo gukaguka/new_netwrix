@@ -1,5 +1,13 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Origin: *');
+
+header('Access-Control-Allow-Origin: https://lighthearted-cactus-ef24e2.netlify.app/');
+
+header('Access-Control-Allow-Methods: GET, POST');
+
+header("Access-Control-Allow-Headers: X-Requested-With");
+
+
 echo "hello there";
 //Get Heroku ClearDB connection information
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
