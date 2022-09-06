@@ -1,6 +1,6 @@
 <?php
 
-header('Access-Control-Allow-Origin: https://lighthearted-cactus-ef24e2.netlify.app/');
+header('Access-Control-Allow-Origin: *');
 
 header('Access-Control-Allow-Methods: GET, POST');
 
