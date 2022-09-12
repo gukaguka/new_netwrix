@@ -1,15 +1,5 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-
-header('Access-Control-Allow-Methods: GET, POST');
-
-header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization');
-header("Access-Control-Allow-Credentials: true");
-header('Content-Type: application/json');
-
-header("HTTP/1.1 200 OK");
-
 echo "hello there";
 //Get Heroku ClearDB connection information
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -28,28 +18,15 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 
 
-if(isset($_POST['req'])){
 
-
-	$sql = 'SELECT * FROM partner-locator WHERE status = "$req"';
+$sql = ' SELECT * FROM partner-locator ';
 
     $myQuery = mysqli_query($conn, $sql);
 
 
     $result = mysqli_fetch_all($myQuery, MYSQLI_ASSOC);
 
-    echo json_encode($result);
-
-}
-
-$sqli = ' SELECT * FROM partner-locator ';
-
-    $myQueryy = mysqli_query($conn, $sqli);
-
-
-    $resultt = mysqli_fetch_all($myQueryy, MYSQLI_ASSOC);
-
-	print_r($resultt);
+	print_r($result);
 
 
 
