@@ -1,4 +1,6 @@
 <?php
+header('Access-Control-Allow-Origin: https://netrix-clan.herokuapp.com/');
+header('Content-Type: application/json');
 
 echo "hello there";
 //Get Heroku ClearDB connection information
@@ -12,12 +14,15 @@ $query_builder = TRUE;
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
+
+
+
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully";
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") { $hi = $_POST['parameter']; if (empty($hi)) { echo "No hi for today"; } else { echo $hi; } }
 
 $sql = 'SELECT * FROM loc_country';
 $myQuery = mysqli_query($conn, $sql);
