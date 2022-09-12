@@ -1,5 +1,6 @@
 <?php
-header('Access-Control-Allow-Origin: https://netrix-clan.herokuapp.com/');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
 header('Content-Type: application/json');
 
 echo "hello there";
