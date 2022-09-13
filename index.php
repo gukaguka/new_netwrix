@@ -29,7 +29,8 @@ $myQuery = mysqli_query($conn, $sql);
 
 $result = mysqli_fetch_all($myQuery, MYSQLI_ASSOC);
 
-print_r($result);
-?> } }
+print_r($result);} }
+                                                                                                                           }
+?> 
 
 
